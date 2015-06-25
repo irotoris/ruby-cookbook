@@ -1,6 +1,6 @@
 src_file_path = "#{node['ruby']['install_dir']}/ruby-#{node['ruby']['version']}.tar.gz"
 
-pkgs = %w{gcc zlib-devel openssl-devel sqlite sqlite-devel mysql-devel readline-devel libffi-devel make}
+pkgs = %w{gcc zlib-devel openssl-devel libffi-devel make}
 
 pkgs.each do |pkg|
   package pkg do
@@ -21,12 +21,10 @@ bash "compile and install ruby" do
     make
     make install
   EOH
-  notifies :create, "link[/usr/bin/ruby]"
   not_if "ruby -v | grep #{node['ruby']['version']}"
 end
 
 link "/usr/bin/ruby" do
   to "/usr/local/bin/ruby"
-  action :nothing
 end
   
