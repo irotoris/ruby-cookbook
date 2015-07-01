@@ -1,6 +1,6 @@
 name             'ruby'
 maintainer       'irotoris'
-maintainer_email 'irotoris@example.com'
+maintainer_email 'shiroto00@yahoo.co.jp'
 license          'All rights reserved'
 description      'Installs/Configures ruby'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
